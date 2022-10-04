@@ -68,7 +68,7 @@ export default function TransactionList({
                 <Typography>{transaction.amount}</Typography>
                 <Typography>{transaction.date}</Typography>
                 <Typography>{transaction.type}</Typography>
-                <Typography>{transaction.category}</Typography>
+                {/* <Typography>{transaction.category}</Typography> */}
               </div>
               <div>
                 <td>

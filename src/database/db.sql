@@ -21,7 +21,7 @@ CREATE TABLE users(
 
 --insert fake users
 INSERT INTO users (user_name, user_email, user_password) 
-VALUES ('jazmin', 'jazminfeliu@gmail.com','jaz123');
+VALUES ('123', '123@gmail.com','123');
 
 ---add FK in transactions TABLE
 ALTER TABLE transactions ADD COLUMN user_id UUID REFERENCES users (user_id);

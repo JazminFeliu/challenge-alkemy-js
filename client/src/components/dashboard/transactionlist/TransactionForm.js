@@ -19,7 +19,6 @@ export default function TransactionForm(setTransactionsChange) {
     amount: "",
     date: "",
     type: "",
-    category: "",
   });
 
   const handleSubmit = async (e) => {
@@ -123,7 +122,7 @@ export default function TransactionForm(setTransactionsChange) {
                   <MenuItem value={"extract"}>Extract</MenuItem>
                 </Select>
               </FormControl>
-              <TextField
+              {/* <TextField
                 variant="filled"
                 label="Write your category"
                 name="category"
@@ -131,7 +130,7 @@ export default function TransactionForm(setTransactionsChange) {
                 value={transaction.category}
                 inputProps={{ style: { color: "white" } }}
                 InputLabelProps={{ style: { color: "white" } }}
-              />
+              /> */}
 
               <Button
                 variant="contained"
@@ -141,8 +140,7 @@ export default function TransactionForm(setTransactionsChange) {
                   !transaction.description ||
                   !transaction.amount ||
                   !transaction.date ||
-                  !transaction.type ||
-                  !transaction.category
+                  !transaction.type
                 }
               >
                 ADD

@@ -22,7 +22,7 @@ const Landing = () => {
             ALKEMY - Challenge FullStack JS
           </Typography>
           <Typography variant="h6" textAlign="center" color=" grey">
-            Sign In and start your building your transaction list
+            Sign In and start your wallet
           </Typography>
           <Button variant="standard">
             <Link to="/login" style={{ textDecoration: "none" }}>

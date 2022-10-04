@@ -16,7 +16,7 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
       myHeaders.append("Content-Type", "application/json");
       myHeaders.append("token", localStorage.token);
 
-      const body = { description, amount, date, type, category };
+      const body = { description, amount, date, type };
       await fetch(`http://localhost:4000/dashboard/transactions/${id}`, {
         method: "PUT",
         headers: myHeaders,
@@ -33,7 +33,7 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
   const [amount, setAmount] = useState(transaction.amount);
   const [date, setDate] = useState(transaction.date);
   const [type, setType] = useState(transaction.type);
-  const [category, setCategory] = useState(transaction.category);
+  //const [category, setCategory] = useState(transaction.category);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -79,7 +79,7 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
                 rows={4}
                 sx={{
                   display: "block",
-                  margin: "5rem 0",
+                  margin: "3rem 0",
                 }}
                 name="description"
                 onChange={(e) => setDescription(e.target.value)}
@@ -113,14 +113,14 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
               <TextField
                 variant="filled"
                 disabled
-                label="Deposit/Extract"
+                label="Type"
                 name="type"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
                 inputProps={{ style: { color: "white" } }}
                 InputLabelProps={{ style: { color: "white" } }}
               />
-              <TextField
+              {/* <TextField
                 variant="filled"
                 label="Write your category"
                 name="category"
@@ -128,7 +128,7 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
                 onChange={(e) => setCategory(e.target.value)}
                 inputProps={{ style: { color: "white" } }}
                 InputLabelProps={{ style: { color: "white" } }}
-              />
+              /> */}
             </form>
             <Button
               variant="contained"
