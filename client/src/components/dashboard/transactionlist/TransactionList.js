@@ -51,9 +51,9 @@ export default function TransactionList({
         transaction.map((transaction) => (
           <Card
             style={{
-              marginBottom: ".5rem",
+              marginBottom: ".3rem",
               backgroundColor: "#1e272e",
-              padding: "5px",
+              padding: "3px",
             }}
             key={transaction.id}
           >

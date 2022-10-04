@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
+
 //components
 
 import TransactionList from "./transactionlist/TransactionList";
@@ -78,13 +79,12 @@ const Dashboard = ({ setAuth }) => {
         variant="outlined"
         sx={{ mt: 1 }}
         style={{
-          backgroundColor: "#ffffff",
           padding: "2rem",
           alignItems: "center",
         }}
       >
         <Typography variant="h2" textAlign="center" color=" #a6a678">
-          {name} 's Transaction List
+          {name} 's Wallet
         </Typography>
 
         <Grid container spacing={2}>

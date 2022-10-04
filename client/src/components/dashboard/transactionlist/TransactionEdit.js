@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import {
   Button,
   TextField,
+  Card,
   CardContent,
   Typography,
   Box,
@@ -41,15 +42,14 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
 
   const style = {
     position: "absolute",
-    top: "30%",
+    top: "40%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "#37474f",
-    color: "black",
-    border: "1px solid #000",
-    boxShadow: 24,
-    p: 4,
+    width: 300,
+    bgcolor: "#eceff1",
+    border: "1px solid #0000",
+    boxShadow: 20,
+    p: 3,
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,61 +66,70 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Transaction Edit
-          </Typography>
-          <CardContent>
-            <form onSubmit={handleSubmit}>
-              <TextField
-                variant="filled"
-                label="Write your description"
-                multiline
-                rows={4}
-                sx={{
-                  display: "block",
-                  margin: "3rem 0",
-                }}
-                name="description"
-                onChange={(e) => setDescription(e.target.value)}
-                value={description}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
-              />
-              <TextField
-                variant="filled"
-                label="Write your amount"
-                sx={{
-                  display: "block",
-                  margin: "5rem 0",
-                }}
-                name="amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
-              />
+        <Card sx={{ mt: 4 }} style={{ padding: "1rem" }}>
+          <Box sx={style}>
+            <Typography id="modal-title" variant="h4" component="h1">
+              Transaction Edit
+            </Typography>
+            <CardContent>
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  variant="filled"
+                  label="Description"
+                  multiline
+                  rows={3}
+                  sx={{
+                    display: "block",
+                    margin: "2rem 0",
+                  }}
+                  name="description"
+                  onChange={(e) => setDescription(e.target.value)}
+                  value={description}
+                  inputProps={{ style: { color: "black" } }}
+                  InputLabelProps={{ style: { color: "black" } }}
+                />
+                <TextField
+                  variant="filled"
+                  label="Amount"
+                  sx={{
+                    display: "block",
+                    margin: "2rem 0",
+                  }}
+                  name="amount"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  inputProps={{ style: { color: "black" } }}
+                  InputLabelProps={{ style: { color: "black" } }}
+                />
 
-              <TextField
-                variant="filled"
-                label="Date"
-                name="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
-              />
-              <TextField
-                variant="filled"
-                disabled
-                label="Type"
-                name="type"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}
-              />
-              {/* <TextField
+                <TextField
+                  variant="filled"
+                  label="Date"
+                  name="date"
+                  sx={{
+                    display: "block",
+                    margin: "2rem 0",
+                  }}
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  inputProps={{ style: { color: "black" } }}
+                  InputLabelProps={{ style: { color: "black" } }}
+                />
+                <TextField
+                  variant="filled"
+                  disabled
+                  label="Type"
+                  name="type"
+                  sx={{
+                    display: "block",
+                    margin: "3rem 0",
+                  }}
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                  inputProps={{ style: { color: "black" } }}
+                  InputLabelProps={{ style: { color: "black" } }}
+                />
+                {/* <TextField
                 variant="filled"
                 label="Write your category"
                 name="category"
@@ -129,20 +138,21 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
                 inputProps={{ style: { color: "white" } }}
                 InputLabelProps={{ style: { color: "white" } }}
               /> */}
-            </form>
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              onClick={() => editTransaction(transaction.id)}
-            >
-              Save
+              </form>
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                onClick={() => editTransaction(transaction.id)}
+              >
+                Save
+              </Button>
+            </CardContent>
+            <Button variant="contained" color="error" onClick={handleClose}>
+              Close
             </Button>
-          </CardContent>
-          <Button variant="contained" color="error" onClick={handleClose}>
-            Close
-          </Button>
-        </Box>
+          </Box>
+        </Card>
       </Modal>
     </Fragment>
   );

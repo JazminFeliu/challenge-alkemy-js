@@ -61,7 +61,7 @@ export default function TransactionForm(setTransactionsChange) {
       <Grid item xs={3}>
         <Card
           sx={{ mt: 6 }}
-          style={{ backgroundColor: "#37474f", padding: "1rem" }}
+          style={{ backgroundColor: "#4C6793", padding: "1rem" }}
         >
           <Typography variant="h4" textAlign="center" color="white">
             Add Transaction
@@ -70,12 +70,11 @@ export default function TransactionForm(setTransactionsChange) {
             <form onSubmit={handleSubmit}>
               <TextField
                 variant="filled"
-                label="Write your description"
+                label="Description"
                 multiline
-                rows={4}
+                rows={3}
                 sx={{
-                  display: "block",
-                  margin: "5rem 0",
+                  margin: "2rem 0",
                 }}
                 name="description"
                 onChange={handleChange}
@@ -85,10 +84,9 @@ export default function TransactionForm(setTransactionsChange) {
               />
               <TextField
                 variant="filled"
-                label="Write your amount"
+                label="Amount"
                 sx={{
-                  display: "block",
-                  margin: "5rem 0",
+                  margin: "2rem 0",
                 }}
                 name="amount"
                 onChange={handleChange}
@@ -101,9 +99,12 @@ export default function TransactionForm(setTransactionsChange) {
                 label="Date"
                 name="date"
                 type="date"
+                sx={{
+                  margin: "2rem 0",
+                  width: 220,
+                }}
                 onChange={handleChange}
                 value={transaction.date}
-                sx={{ width: 220 }}
                 inputProps={{ style: { color: "white" } }}
                 InputLabelProps={{ shrink: true }}
               />
@@ -114,6 +115,10 @@ export default function TransactionForm(setTransactionsChange) {
                   label="Type"
                   name="type"
                   onChange={handleChange}
+                  sx={{
+                    margin: "1rem 0",
+                    width: 220,
+                  }}
                   value={transaction.type}
                   inputProps={{ style: { color: "white" } }}
                   InputLabelProps={{ style: { color: "white" } }}
@@ -136,6 +141,9 @@ export default function TransactionForm(setTransactionsChange) {
                 variant="contained"
                 color="primary"
                 type="submit"
+                sx={{
+                  margin: "1rem 0rem",
+                }}
                 disabled={
                   !transaction.description ||
                   !transaction.amount ||
