@@ -25,6 +25,7 @@ const TransactionEdit = ({ transaction, setTransactionsChange }) => {
       });
 
       setTransactionsChange(true);
+      handleClose(true);
     } catch (err) {
       console.error(err.message);
     }

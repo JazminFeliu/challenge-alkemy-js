@@ -9,11 +9,14 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  CircularProgress,
 } from "@mui/material";
 
 import { useState } from "react";
 
 export default function TransactionForm(setTransactionsChange) {
+  const [loading, setLoading] = useState(false);
+
   const [transaction, setTransaction] = useState({
     description: "",
     amount: "",
@@ -23,6 +26,8 @@ export default function TransactionForm(setTransactionsChange) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
 
     try {
       const myHeaders = new Headers();
@@ -41,6 +46,7 @@ export default function TransactionForm(setTransactionsChange) {
       const data = await response.json();
       console.log(data);
 
+      setLoading(false);
       setTransactionsChange(true);
     } catch (err) {
       console.error(err.message);
@@ -151,7 +157,11 @@ export default function TransactionForm(setTransactionsChange) {
                   !transaction.type
                 }
               >
-                ADD
+                {loading ? (
+                  <CircularProgress color="inherit" size={24} />
+                ) : (
+                  "ADD"
+                )}
               </Button>
             </form>
           </CardContent>
